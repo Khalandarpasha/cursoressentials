@@ -138,6 +138,19 @@ See `omx-porting-report.md` for the complete skip list and rationale.
 - Converted into Cursor-compatible rule/skill structure
 - Validated against source content with rubric-based scoring
 
+## Acknowledgement
+
+This project is inspired by and derived from patterns in `oh-my-codex (OmX)` by Yeachan Heo:
+
+- Upstream repository: [Yeachan-Heo/oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex)
+- Upstream license: MIT
+
+No proprietary source code is included here. This repository contains adaptation artifacts (rules/skills/validation workflow) prepared for Cursor usage.
+
+## License
+
+This repository is released under the MIT License. See `LICENSE`.
+
 ## Maintainer Notes
 
 If you modify rules or skills:
