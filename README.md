@@ -5,6 +5,7 @@ This repository packages the assets generated from an OmX (`oh-my-codex`) to Cur
 It includes:
 - 33 converted Cursor Rules (`.mdc`)
 - 21 converted Cursor Skills (`SKILL.md`)
+- 4 Phase-4 orchestration artifacts (`omx-team-orchestrator`, `omx-team-worker`, `omx-team-state`, `omx-conflict-resolver`)
 - Validation script used to score conversion quality against original OmX files
 - Full migration report with scores, skipped items, and mapping decisions
 
@@ -16,6 +17,8 @@ It includes:
   Converted skills. Each skill is in `omx-<name>/SKILL.md`
 - `scripts/omx-validation/validate.py`  
   Validator that checks converted files against OmX source with a 100-point rubric
+- `scripts/omx-validation/validate-phase4.py`  
+  Phase-4 validator for team orchestration parity vs OmX team/worker/pipeline/ultrawork/swarm
 - `omx-porting-report.md`  
   Final scorecard and migration details
 
@@ -69,6 +72,9 @@ Checks include:
 - Tool mapping correctness
 - Completeness and section parity
 
+For team orchestration parity (Phase 4), use:
+- `scripts/omx-validation/validate-phase4.py`
+
 ## Quick Start
 
 ### A) Validate current assets
@@ -83,6 +89,12 @@ Optional JSON output:
 
 ```powershell
 python .\scripts\omx-validation\validate.py prompts --source "c:\azuria_repo\_omx_source" --target-rules ".\cursor-rules" --json
+```
+
+Phase 4 validation:
+
+```powershell
+python .\scripts\omx-validation\validate-phase4.py
 ```
 
 ### B) Install to global Cursor profile
@@ -122,6 +134,13 @@ Copy-Item .\cursor-skills\omx-* .\.cursor\skills\ -Recurse -Force
 2. Break down with `omx-pipeline`
 3. Implement via `omx-ralph`
 4. Review with `omx-code-review` and `omx-quality-reviewer`
+
+### Pattern 4: Team-native parallel orchestration (Phase 4)
+1. Use `omx-team-orchestrator` to decompose and staff lanes
+2. Run execution lanes on `best-of-n-runner` workers
+3. Persist lifecycle in `.cursor/state/team/` via `omx-team-state`
+4. Resolve overlaps with `omx-conflict-resolver`
+5. Finalize via verification lanes and completion report
 
 ## Known Limits (Important)
 

@@ -173,3 +173,58 @@ python validate.py prompts    # Validate prompt conversions
 python validate.py skills     # Validate skill conversions
 python validate.py prompts --json   # JSON output
 ```
+
+---
+
+## Phase 4: Cursor-Native Team Orchestration
+
+### Added Artifacts
+
+New artifacts added in Phase 4:
+
+- `cursor-skills/omx-team-orchestrator/SKILL.md`
+- `cursor-rules/omx-team-worker.mdc`
+- `cursor-skills/omx-team-state/SKILL.md`
+- `cursor-skills/omx-conflict-resolver/SKILL.md`
+- Enhanced `cursor-skills/omx-pipeline/SKILL.md`
+- Enhanced `cursor-skills/omx-ultrawork/SKILL.md`
+- `scripts/omx-validation/validate-phase4.py`
+- `scripts/omx-validation/phase4-validation-report.json`
+
+### Phase 4 Validation Result
+
+| Artifact | Score | Status |
+|---|---:|---|
+| `omx-team-orchestrator` | 96 | PASS |
+| `omx-team-worker-rule` | 90 | PASS |
+| `omx-team-state` | 100 | PASS |
+| `omx-conflict-resolver` | 92 | PASS |
+| `omx-pipeline` (enhanced) | 90 | PASS |
+| `omx-ultrawork` (enhanced) | 90 | PASS |
+
+**Phase 4 average**: **93.0/100** (all artifacts >= 90).
+
+### Limitations and Misses vs Original OmX Team Runtime
+
+Even after Phase 4, parity is high but not exact. Remaining gaps:
+
+1. **No tmux pane runtime**  
+   OmX team uses live tmux pane orchestration with explicit pane/session lifecycle. Cursor adaptation uses Task subagents and state files instead.
+
+2. **No `omx team api` mailbox/claim protocol**  
+   OmX has first-class mailbox APIs (`send-message`, `claim-task`, `transition-task-status`). Cursor adaptation emulates this through `.cursor/state/team/*.json` conventions.
+
+3. **No mixed CLI worker backends (Codex/Claude/Gemini) in one team runtime**  
+   OmX supports CLI worker backend routing through env configuration. Cursor uses one agent runtime and subagent types, not heterogeneous CLI workers.
+
+4. **Worktree isolation is partial**  
+   Phase 4 uses `best-of-n-runner` for execution worker isolation (hybrid mode), but this is not identical to OmX tmux+worktree lifecycle.
+
+5. **No dedicated HUD equivalent**  
+   OmX HUD (`omx hud --watch`) has no direct Cursor equivalent; progress is reported via state files and assistant updates.
+
+6. **Cross-session durability still limited**  
+   State files improve within-session durability, but not full process-level recovery semantics equivalent to OmX runtime servers.
+
+7. **Validator is semantic-adaptation aware**  
+   Phase 4 validator intentionally weights semantic parity over literal text parity due runtime differences (tmux/CLI vs Cursor subagent model).

@@ -1,0 +1,80 @@
+{
+  "artifacts": 6,
+  "passed": 6,
+  "failed": 0,
+  "average_score": 93.0,
+  "results": [
+    {
+      "artifact": "omx-team-orchestrator",
+      "total": 96,
+      "passed": true,
+      "breakdown": {
+        "structure": 20,
+        "phase_coverage": 30,
+        "source_parity_similarity": 16,
+        "cursor_mapping": 20,
+        "auto_mode_safety": 10
+      },
+      "feedback": []
+    },
+    {
+      "artifact": "omx-team-worker-rule",
+      "total": 90,
+      "passed": true,
+      "breakdown": {
+        "structure": 25,
+        "behavior_contract": 35,
+        "source_parity_similarity": 15,
+        "cursor_adaptation": 15
+      },
+      "feedback": []
+    },
+    {
+      "artifact": "omx-team-state",
+      "total": 100,
+      "passed": true,
+      "breakdown": {
+        "required_state_files": 35,
+        "lifecycle": 25,
+        "schema_fields": 25,
+        "auto_mode_guidance": 15
+      },
+      "feedback": []
+    },
+    {
+      "artifact": "omx-conflict-resolver",
+      "total": 92,
+      "passed": true,
+      "breakdown": {
+        "merge_strategy": 40,
+        "safety": 22,
+        "process_completeness": 30
+      },
+      "feedback": [
+        "Missing conflict safety terms: ['destructive']"
+      ]
+    },
+    {
+      "artifact": "omx-pipeline",
+      "total": 90,
+      "passed": true,
+      "breakdown": {
+        "phase4_extensions": 50,
+        "source_parity_similarity": 20,
+        "cursor_execution_mapping": 20
+      },
+      "feedback": []
+    },
+    {
+      "artifact": "omx-ultrawork",
+      "total": 90,
+      "passed": true,
+      "breakdown": {
+        "phase4_extensions": 55,
+        "source_parity_similarity": 20,
+        "cursor_mapping": 15
+      },
+      "feedback": []
+    }
+  ]
+}
