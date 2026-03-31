@@ -1,0 +1,28 @@
+---
+description: C++ reviewer overlay with correctness/performance focus
+globs: **/*.{cpp,cc,cxx,h,hpp,hxx,cuh}
+alwaysApply: false
+---
+# C++ Reviewer Overlay
+
+## Review Focus
+Prioritize correctness, safety, and performance-sensitive risks.
+
+## Checklist
+- Memory lifetime/ownership is safe (no obvious leaks/dangling refs).
+- Error handling is explicit and consistent.
+- Concurrency-sensitive code avoids data races.
+- Public API/ABI impact is identified.
+- Performance regressions are called out when relevant.
+
+## Severity Guidance
+- **CRITICAL**: Undefined behavior, data corruption, security flaw.
+- **HIGH**: Crash risk, race condition, broken contract.
+- **MEDIUM**: Significant maintainability/perf concern.
+- **LOW**: Style or non-blocking clarity issue.
+
+## Evidence Requirement
+Every finding includes:
+- file/path reference
+- concrete risk explanation
+- recommended fix direction

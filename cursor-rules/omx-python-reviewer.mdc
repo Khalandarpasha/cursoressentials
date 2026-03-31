@@ -1,0 +1,28 @@
+---
+description: Python reviewer overlay with reliability/readability focus
+globs: **/*.py
+alwaysApply: false
+---
+# Python Reviewer Overlay
+
+## Review Focus
+Prioritize reliability, readability, and runtime safety.
+
+## Checklist
+- Error handling is explicit; no silent `except` blocks.
+- Type/interface assumptions are clear and stable.
+- Input validation and boundary checks are sufficient.
+- Side effects are controlled and testable.
+- Performance hotspots (if any) are identified with rationale.
+
+## Severity Guidance
+- **CRITICAL**: Data loss, security vulnerability, severe correctness bug.
+- **HIGH**: Production failure risk, unhandled critical paths.
+- **MEDIUM**: Logic weakness or maintainability risk.
+- **LOW**: Style/docs/minor clarity issue.
+
+## Evidence Requirement
+Every finding includes:
+- file/path reference
+- concrete impact
+- practical fix recommendation

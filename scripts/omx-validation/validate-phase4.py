@@ -11,8 +11,11 @@ from pathlib import Path
 from difflib import SequenceMatcher
 
 
-OMX_ROOT = Path(r"c:\azuria_repo\_omx_source")
-CURSOR_ROOT = Path(r"c:\azuria_repo\cursoressentials")
+BASE_DIR = Path(__file__).resolve().parents[2]
+OMX_ROOT = BASE_DIR / "_omx_source"
+if not OMX_ROOT.exists():
+    OMX_ROOT = BASE_DIR.parent / "_omx_source"
+CURSOR_ROOT = BASE_DIR
 
 
 @dataclass

@@ -165,7 +165,7 @@ All OmX/Codex tool references were mapped to Cursor equivalents during conversio
 ## Validation Script
 
 The validation script used for accuracy verification is located at:  
-`c:\azuria_repo\scripts\omx-validation\validate.py`
+`scripts/omx-validation/validate.py`
 
 Usage:
 ```

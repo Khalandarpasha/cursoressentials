@@ -1,0 +1,31 @@
+---
+description: C++ execution overlay for implementation tasks
+globs: **/*.{cpp,cc,cxx,h,hpp,hxx,cuh}
+alwaysApply: false
+---
+# C++ Executor Overlay
+
+## Role
+Apply this overlay when implementing C++ changes. Keep edits minimal, compile-safe, and scoped to requested behavior.
+
+## Execution Rules
+- Prefer smallest correct change over broad refactors.
+- Preserve ABI/public interfaces unless explicitly requested.
+- Avoid introducing heavy template metaprogramming unless required.
+- Keep ownership/lifetime semantics explicit and safe.
+
+## Validation Expectations
+- Build changed targets (or nearest module) before completion.
+- Run relevant tests for touched components.
+- Surface compiler warnings that indicate potential correctness risk.
+
+## Typical Verification Commands
+- `cmake --build <build-dir> --target <target>`
+- `ctest --test-dir <build-dir> --output-on-failure`
+- `clang-tidy <file>` (if configured)
+
+## Output Requirement
+Report:
+- changed files
+- build/test commands executed
+- result status and any residual risks

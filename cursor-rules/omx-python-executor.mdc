@@ -1,0 +1,31 @@
+---
+description: Python execution overlay for implementation tasks
+globs: **/*.py
+alwaysApply: false
+---
+# Python Executor Overlay
+
+## Role
+Apply this overlay when implementing Python changes. Keep behavior explicit, test-backed, and style-compliant.
+
+## Execution Rules
+- Prefer clear, readable code over clever shortcuts.
+- Preserve public API signatures unless explicitly requested.
+- Avoid hidden side effects in module import paths.
+- Keep exceptions explicit; do not swallow errors silently.
+
+## Validation Expectations
+- Run targeted tests for modified modules.
+- Run lints/type checks where configured.
+- Confirm no regressions in touched paths.
+
+## Typical Verification Commands
+- `pytest -q <path-or-test>`
+- `ruff check <path>` (if configured)
+- `mypy <path>` (if configured)
+
+## Output Requirement
+Report:
+- changed files
+- validation commands run
+- pass/fail status and follow-up risks

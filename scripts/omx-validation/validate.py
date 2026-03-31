@@ -403,7 +403,8 @@ def run_validation(mode: str, source_dir: str, target_dir: str) -> dict:
 def main():
     parser = argparse.ArgumentParser(description="Validate OmX-to-Cursor conversions")
     parser.add_argument("mode", choices=["prompts", "skills"], help="What to validate")
-    parser.add_argument("--source", default=r"c:\azuria_repo\_omx_source", help="OmX source dir")
+    default_source = str(Path(__file__).resolve().parents[2] / "_omx_source")
+    parser.add_argument("--source", default=default_source, help="OmX source dir")
     parser.add_argument("--target-rules", default=r"C:\Users\khala\.cursor\rules", help="Cursor rules dir")
     parser.add_argument("--target-skills", default=r"C:\Users\khala\.cursor\skills-cursor", help="Cursor skills dir")
     parser.add_argument("--json", action="store_true", help="Output as JSON")

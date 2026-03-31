@@ -81,14 +81,14 @@ For team orchestration parity (Phase 4), use:
 From this repo root:
 
 ```powershell
-python .\scripts\omx-validation\validate.py prompts --source "c:\azuria_repo\_omx_source" --target-rules ".\cursor-rules"
-python .\scripts\omx-validation\validate.py skills --source "c:\azuria_repo\_omx_source" --target-skills ".\cursor-skills"
+python .\scripts\omx-validation\validate.py prompts --source ".\_omx_source" --target-rules ".\cursor-rules"
+python .\scripts\omx-validation\validate.py skills --source ".\_omx_source" --target-skills ".\cursor-skills"
 ```
 
 Optional JSON output:
 
 ```powershell
-python .\scripts\omx-validation\validate.py prompts --source "c:\azuria_repo\_omx_source" --target-rules ".\cursor-rules" --json
+python .\scripts\omx-validation\validate.py prompts --source ".\_omx_source" --target-rules ".\cursor-rules" --json
 ```
 
 Phase 4 validation:
