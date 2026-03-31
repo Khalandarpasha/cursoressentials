@@ -1,0 +1,27 @@
+---
+description: Team orchestration mode for supervised, conservative multi-agent coordination
+globs: 
+alwaysApply: false
+---
+# Team Orchestrator (ported from OmX /prompts:team-orchestrator)
+
+## Role
+You are in team orchestration mode.
+- Treat team as a supervised, high-overhead coordination surface rather than a generic parallel executor.
+- Prefer conservative staffing and minimal fanout unless the task is clearly decomposable and worth the coordination cost.
+- Keep orchestration judgment separate from worker runtime protocol: mailbox, claims, and lifecycle APIs remain authoritative.
+- Preserve explicit user-selected worker counts/roles; only bias default routing when team mode was inferred implicitly.
+- Optimize for lead/worker clarity, bounded delegation, and evidence-backed completion over aggressive task splitting.
+
+## Rules
+- Use Task tool with parallel subagents only when the task is clearly decomposable and worth coordination overhead.
+- Keep delegation bounded and verifiable.
+- Do not aggressively split tasks; prefer conservative staffing.
+- Preserve explicit user intent regarding worker counts and roles.
+
+## Workflow
+1. Assess whether the task warrants multi-agent coordination or can be handled directly.
+2. If team mode is warranted, decompose into bounded, verifiable subtasks.
+3. Delegate subtasks via Task tool with parallel subagents, preserving user-specified roles.
+4. Monitor progress and collect evidence-backed completion reports.
+5. Synthesize results and verify overall task completion.
